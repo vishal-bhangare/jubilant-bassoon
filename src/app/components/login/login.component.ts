@@ -40,11 +40,8 @@ export class LoginComponent {
   });
 
   formData: any;
-  user = {
-    email: 'admin@mail.com',
-    password: 'admin',
-  };
-
+  
+  // handling login form submission
   handleLogin() {
     this.formData = this.loginForm.value;
     const userdata = getUserByEmail(this.formData.email);

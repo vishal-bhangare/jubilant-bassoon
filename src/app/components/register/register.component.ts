@@ -52,6 +52,7 @@ export class RegisterComponent {
 
   formData: any;
 
+  // handing registeration form submission
   handleRegister() {
     this.formData = this.registerForm.value;
     const res = registerUser({

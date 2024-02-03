@@ -37,10 +37,12 @@ export class AccountComponent {
   userData: UserI;
 
   updateUserDetailsForm: FormGroup;
+
   constructor(private customValidators: ValidatorService) {
     this.userId = parseInt(localStorage.getItem('userId')!);
     this.userData = getUserById(this.userId);
     this.fetchUserData(this.userId);
+
     this.updateUserDetailsForm = new FormGroup(
       {
         name: new FormControl(this.userData.name, []),
@@ -64,6 +66,7 @@ export class AccountComponent {
     );
   }
 
+  // fetching user details from database
   fetchUserData(userId: number) {
     this.userData = getUserById(userId);
   }
@@ -74,6 +77,7 @@ export class AccountComponent {
 
   formData: any;
 
+  // handling user details update form submission
   updateUserDetails() {
     this.formData = this.updateUserDetailsForm.value;
     console.log(this.formData);
