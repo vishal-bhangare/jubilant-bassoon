@@ -1,23 +1,23 @@
 <div class="bg">
-  <form class="login">
+  <form class="login" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
     <span class="title">Login into your account</span>
     <mat-form-field appearance="outline">
       <mat-label>Enter your email</mat-label>
-      <input type="email" matInput>
+      <input matInput type="email" formControlName="email">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <input matInput [type]="passwordVisibility ? 'password' : 'text'" formControlName="password">
+      <button mat-icon-button matSuffix (click)="passwordVisibility = !passwordVisibility"
+        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordVisibility">
+        <mat-icon>{{passwordVisibility ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
     <button mat-flat-button color="primary">Login</button>
     <mat-divider></mat-divider>
     <div class="new_account">
       <span>Don't have account.</span><br>
-      <a href="register">create new account.</a>
+      <a routerLink="../register">create new account.</a>
     </div>
   </form>
 </div>

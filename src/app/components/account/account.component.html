@@ -1,6 +1,6 @@
 <div class="bg">
-  <form class="register" [formGroup]="registerForm" (ngSubmit)="handleRegister()">
-    <span class="title">Create new account</span>
+  <form class="editForm card" *ngIf="isEditable" [formGroup]="updateUserDetailsForm" (ngSubmit)="updateUserDetails()">
+    <span class="title">Account Settings</span>
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input type="text" matInput formControlName="name">
@@ -25,11 +25,17 @@
         <mat-icon>{{confirmPasswordVisibility ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
-    <button mat-flat-button color="primary" type="submit">Register</button>
-    <mat-divider></mat-divider>
-    <div class="new_account">
-      <span>Already have an account.</span><br>
-      <a routerLink="../login">Login into account.</a>
-    </div>
+    <button mat-flat-button color="primary" type="submit">Update</button>
+
   </form>
+  <div class="accountDetails card" *ngIf="!isEditable">
+    <span class="title">Account Details</span>
+    <table>
+      <tr *ngFor="let item of userData | keyvalue">
+        <td *ngIf="!['id','password'].includes(item.key)">{{item.key}}:</td>
+        <td *ngIf="!['id','password'].includes(item.key)">{{item.value}}</td>
+      </tr>
+    </table>
+    <button mat-stroked-button type="button" (click)="enableEditing()">Edit</button>
+  </div>
 </div>

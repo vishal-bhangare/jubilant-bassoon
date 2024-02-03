@@ -1,0 +1,31 @@
+.bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .editForm {
+  }
+  .accountDetails {
+    align-items: start;
+    button {
+      margin-top: 1rem;
+      margin-left: auto;
+    }
+  }
+  .title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.5rem 0 2rem 0;
+  }
+}
+.card {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
